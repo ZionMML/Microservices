@@ -1,11 +1,13 @@
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PlatformService.Models
 {
     public class Platform
     {
         [Key]
-        public required int Id { get; set; }
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)] // 👈 Important
+        public int Id { get; set; }
         public required string Name { get; set; }
         public required string Publisher { get; set; }
 

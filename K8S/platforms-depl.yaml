@@ -15,3 +15,20 @@ spec:
       containers:
         - name: platformservice
           image: zion82/platformservice:latest
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: Production
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: platforms-clusterip-srv
+spec:
+  type: ClusterIP
+  selector:
+    app: platformservice
+  ports:
+    - name: platformservice
+      protocol: TCP
+      port: 80 # Service port (used inside the cluster & by Ingress)
+      targetPort: 8080 # Container port (your ASP.NET Core app listens on)
