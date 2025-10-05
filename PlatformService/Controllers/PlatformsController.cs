@@ -72,7 +72,7 @@ public class PlatformsController(
         {
             var platformpPublishedDto = _mapper.Map<PlatformPublishedDto>(platformReadDto);
             platformpPublishedDto.Event = "Platform_Published";
-            _messageBusClient.PublishNewPlatform(platformpPublishedDto);
+            await _messageBusClient.PublishNewPlatformAsync(platformpPublishedDto);
         }
         catch (Exception ex)
         {
