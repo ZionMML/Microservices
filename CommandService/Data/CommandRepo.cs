@@ -28,6 +28,11 @@ public class CommandRepo(AppDbContext context) : ICommandRepo
         _context.Platforms.Add(platform);
     }
 
+    public bool ExternalPlatformExists(int externalPlatformId)
+    {
+        return _context.Platforms.Any(p => p.ExternalId == externalPlatformId);
+    }
+
     public IEnumerable<Platform> GetAllPlatforms()
     {
         return _context.Platforms.ToList();
@@ -47,7 +52,7 @@ public class CommandRepo(AppDbContext context) : ICommandRepo
             .OrderBy(c => c.Platform != null ? c.Platform.Name : "");
     }
 
-    public bool PlatformExits(int platformId)
+    public bool PlatformExists(int platformId)
     {
         return _context.Platforms.Any(p => p.Id == platformId);
     }

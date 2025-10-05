@@ -19,7 +19,7 @@ public class CommandsController(ICommandRepo repo, IMapper mapper) : ControllerB
     {
         Console.WriteLine($"--> Hit GetCommandsForPlatform: {platformId}");
 
-        if (!_repo.PlatformExits(platformId))
+        if (!_repo.PlatformExists(platformId))
         {
             return NotFound();
         }
@@ -34,7 +34,7 @@ public class CommandsController(ICommandRepo repo, IMapper mapper) : ControllerB
     {
         Console.WriteLine($"--> Hit GetCommandForPlatform: {platformId}/{commandId}");
 
-        if (!_repo.PlatformExits(platformId))
+        if (!_repo.PlatformExists(platformId))
         {
             return NotFound();
         }
@@ -57,7 +57,7 @@ public class CommandsController(ICommandRepo repo, IMapper mapper) : ControllerB
     {
         Console.WriteLine($"--> Hit CreateCommandForPlatform: {platformId}");
 
-        if (!_repo.PlatformExits(platformId))
+        if (!_repo.PlatformExists(platformId))
         {
             return NotFound();
         }
