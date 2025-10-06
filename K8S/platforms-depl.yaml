@@ -32,3 +32,7 @@ spec:
       protocol: TCP
       port: 80 # Service port (used inside the cluster & by Ingress)
       targetPort: 8080 # Container port (your ASP.NET Core app listens on)
+    - name: platformgrpc
+      protocol: TCP
+      port: 666
+      targetPort: 666
